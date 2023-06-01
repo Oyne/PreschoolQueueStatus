@@ -47,6 +47,12 @@ namespace Queue
             }
         }
 
+        public void FileSave(object sender, EventArgs e)
+        {
+            dataSet.ExportDataSet(filename);
+
+        }
+
         public void FileSaveAs(object sender, EventArgs e)
         {
             var dialog = new Microsoft.Win32.SaveFileDialog();

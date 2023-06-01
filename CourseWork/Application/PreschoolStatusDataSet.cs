@@ -46,14 +46,14 @@ namespace PreschoolStatusDataSet
                 {
                     PreschoolStatus status = new PreschoolStatus();
 
-                    status.Identifier = int.Parse(xlRow.Cell(1).Value.ToString());
+                    status.Identifier = int.Parse(xlRow.Cell(1).Value.IsBlank ? "0" : xlRow.Cell(1).Value.ToString());
                     status.DateReceived = xlRow.Cell(2).Value.ToString();
-                    status.Number = int.Parse(xlRow.Cell(3).Value.ToString());
+                    status.Number = int.Parse(xlRow.Cell(3).Value.IsBlank ? "0" : xlRow.Cell(1).Value.ToString());
                     status.Gender = int.Parse(xlRow.Cell(4).Value.IsBlank ? "0" : xlRow.Cell(4).Value.ToString());
                     status.AgeGroup = xlRow.Cell(5).Value.ToString();
                     status.BenefitType = xlRow.Cell(6).Value.ToString();
                     status.InstitutionName = xlRow.Cell(7).Value.ToString();
-                    status.InstitutionIdentifier = int.Parse(xlRow.Cell(8).Value.ToString());
+                    status.InstitutionIdentifier = int.Parse(xlRow.Cell(8).Value.IsBlank ? "0" : xlRow.Cell(8).Value.ToString());
                     status.DateProvided = xlRow.Cell(9).Value.ToString();
                     status.Status = xlRow.Cell(10).Value.ToString();
 
@@ -100,26 +100,21 @@ namespace PreschoolStatusDataSet
                 worksheet.Cell(1, 10).Value = "status";
                 worksheet.Cell(2, 10).Value = "Статус заявки";
 
+                for (int i = 0; i < statuses.Count; i++)
+                {
+                    worksheet.Cell(i + 3, 1).Value = statuses[i].Identifier;
+                    worksheet.Cell(i + 3, 2).Value = statuses[i].DateReceived;
+                    worksheet.Cell(i + 3, 3).Value = statuses[i].Number;
+                    worksheet.Cell(i + 3, 4).Value = statuses[i].Gender;
+                    worksheet.Cell(i + 3, 5).Value = statuses[i].AgeGroup;
+                    worksheet.Cell(i + 3, 6).Value = statuses[i].BenefitType;
+                    worksheet.Cell(i + 3, 7).Value = statuses[i].InstitutionName;
+                    worksheet.Cell(i + 3, 8).Value = statuses[i].InstitutionIdentifier;
+                    worksheet.Cell(i + 3, 9).Value = statuses[i].DateProvided;
+                    worksheet.Cell(i + 3, 10).Value = statuses[i].Status;
+                }
+
                 workbook.SaveAs(fileName);
-
-                //// Iterate over all rows in the worksheet except header ones
-                //foreach (var status in statuses)
-                //{
-                //    PreschoolStatus status = new PreschoolStatus();
-
-                //    status.Identifier = int.Parse(xlRow.Cell(1).Value.ToString());
-                //    status.DateReceived = xlRow.Cell(2).Value.ToString();
-                //    status.Number = int.Parse(xlRow.Cell(3).Value.ToString());
-                //    status.Gender = int.Parse(xlRow.Cell(4).Value.IsBlank ? "0" : xlRow.Cell(4).Value.ToString());
-                //    status.AgeGroup = xlRow.Cell(5).Value.ToString();
-                //    status.BenefitType = xlRow.Cell(6).Value.ToString();
-                //    status.InstitutionName = xlRow.Cell(7).Value.ToString();
-                //    status.InstitutionIdentifier = int.Parse(xlRow.Cell(8).Value.ToString());
-                //    status.DateProvided = xlRow.Cell(9).Value.ToString();
-                //    status.Status = xlRow.Cell(10).Value.ToString();
-
-                //    statuses.Add(status);
-                //}
             }
         }
     }

@@ -35,7 +35,8 @@
                               Click="FileOpen">
                     </MenuItem>
                     <MenuItem Header="Зберегти"
-                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="FileSave">
                     </MenuItem>
                     <MenuItem Header="Зберегти як"
                               Style="{StaticResource CustomMenuItemPopUpStyle}"
@@ -128,10 +129,9 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
                 <ColumnDefinition Width="0.4*"></ColumnDefinition>
-                <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                <ColumnDefinition Width="0.20*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <TextBox x:Name="SearchTextBox"
@@ -145,27 +145,26 @@
                      GotFocus="SearchGotFocusEvent"
                      PreviewTextInput="NumberValidationTextBox">
             </TextBox>
-            <UniformGrid Grid.Column="2"
-                         Columns="2">
+           
                 <Button x:Name="SearchButton"
+                        Grid.Column="2"
                         Style="{StaticResource RoundButtonStyle}"
                         Content="Шукати"
-                        Width="80"
-                        HorizontalAlignment="Center"
-                        Margin="0, 10, 2.5, 10"
+                        Width="85"
+                        HorizontalAlignment="Left"
+                        Margin="0, 10, 0, 10"
                         Click="Search">
                 </Button>
 
-                <Button x:Name="ResetButton"
-                        Style="{StaticResource RoundButtonStyle}"
-                        Content="Скинути"
-                        Width="80"
-                        HorizontalAlignment="Center"
-                        Margin="2.5, 10, 0, 10"
-                        Click="Reset">
-                </Button>
-            </UniformGrid>
-           
+            <Button x:Name="ResetButton"
+                    Grid.Column="0"
+                    Style="{StaticResource RoundButtonStyle}"
+                    Content="Скинути"
+                    Width="85"
+                    HorizontalAlignment="Right"
+                    Margin="0, 10, 0, 10"
+                    Click="Reset">
+            </Button>
         </Grid>
     </Grid>
 </Window>
