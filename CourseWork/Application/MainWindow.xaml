@@ -38,7 +38,8 @@
                               Style="{StaticResource CustomMenuItemPopUpStyle}">
                     </MenuItem>
                     <MenuItem Header="Зберегти як"
-                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="FileSaveAs">
                     </MenuItem>
                 </MenuItem>
 

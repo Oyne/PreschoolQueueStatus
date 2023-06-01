@@ -47,9 +47,9 @@ namespace Queue
             }
         }
 
-        public void FileSaveAsOpen(object sender, EventArgs e)
+        public void FileSaveAs(object sender, EventArgs e)
         {
-            var dialog = new Microsoft.Win32.OpenFileDialog();
+            var dialog = new Microsoft.Win32.SaveFileDialog();
             dialog.FileName = "Workbook"; // Default file name
             dialog.DefaultExt = ".txt"; // Default file extension
             dialog.Filter = "Excel Workbook (.xlsx)|*.xlsx"; // Filter files by extension
@@ -62,9 +62,7 @@ namespace Queue
             {
                 // Open document
                 filename = dialog.FileName;
-                dataSet.ImportDataSet(filename);
-
-                StatusGrid.ItemsSource = dataSet.GetStatuses;
+                dataSet.ExportDataSet(filename);
             }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
