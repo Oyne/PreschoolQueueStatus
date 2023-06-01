@@ -6,11 +6,70 @@
         xmlns:local="clr-namespace:Queue"
         mc:Ignorable="d"
         Title="Author"
-        Height="450"
-        Width="800"
+        Height="370"
+        Width="750"
+        ResizeMode="NoResize"
         Background="#202020"
         Icon="/Images/Author.ico">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
+            <ColumnDefinition Width="0.65*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Image x:Name="MeImage"
+               Grid.Column="0"
+               Source="/Images/Me.jpg"
+               MouseDown="MeImage_MouseDown"
+               Stretch="Fill">
+        </Image>
         
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition Height="0.4*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock TextWrapping="Wrap"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       FontFamily="{StaticResource PokePixelGba}"
+                       TextBlock.FontSize="20"
+                       TextAlignment="Center"
+                       Foreground="#ffffff">
+                2nd year student <LineBreak/> of computer engineering specialty <LineBreak/> in Khai university <LineBreak/>
+                <LineBreak/> Main hobby: Video Games <LineBreak/> Favourite series: Pokémon
+                </TextBlock>
+                
+            <UniformGrid Grid.Row="1"
+                         Columns="3">
+
+                <Image x:Name="GmailImage"
+                       Source="/Images/Gmail.png"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       MouseDown="GmailImage_MouseDown"
+                       Margin="5">
+                </Image>
+
+                <Image x:Name="TelegramImage"
+                       Source="/Images/Telegram.png"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       MouseDown="TelegramImage_MouseDown"
+                       Margin="5">
+                </Image>
+
+                <Image x:Name="GitHubImage"
+                       Source="/Images/GitHub.png"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       MouseDown="GitHubImage_MouseDown"
+                       Margin="5">
+
+                </Image>
+            </UniformGrid>
+        </Grid>
     </Grid>
 </Window>

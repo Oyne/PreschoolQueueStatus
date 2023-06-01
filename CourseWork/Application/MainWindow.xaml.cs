@@ -21,7 +21,7 @@ namespace Queue
 
         private void AuthorOpen(object sender, RoutedEventArgs e)
         {
-            Author author = new Author();
+            Author author = new();
             author.Show();
         }
 

@@ -5,6 +5,8 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <FontFamily x:Key="PokePixelGba">pack://application:,,,/Font/#PokePixel GBA Regular</FontFamily>
+        
         <!-- Style for button with rounded edges -->
         <Style x:Key="RoundButtonStyle"
                TargetType="Button">
