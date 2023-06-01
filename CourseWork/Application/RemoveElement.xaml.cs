@@ -48,7 +48,7 @@ namespace Queue
                 if (dataSet.GetStatuses.Any(cus => cus.Identifier == int.Parse(IdentifierTextBox.Text.Equals(null) ? "-1" : IdentifierTextBox.Text)))
                 {
                     dataSet.GetStatuses.RemoveAll((s) => s.Identifier == int.Parse(IdentifierTextBox.Text));
-                    MessageBox.Show("Запис за ідентифікатором " + IdentifierTextBox.Text, "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Запис за ідентифікатором " + IdentifierTextBox.Text + " було видалено", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
                     Close();
                 }
                 else

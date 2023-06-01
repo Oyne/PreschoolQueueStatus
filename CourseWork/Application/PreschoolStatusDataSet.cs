@@ -35,6 +35,8 @@ namespace PreschoolStatusDataSet
 
         public void ImportDataSet(string fileName)
         {
+            statuses.Clear();
+
             // Open the workbook
             using (var workbook = new XLWorkbook(fileName))
             {

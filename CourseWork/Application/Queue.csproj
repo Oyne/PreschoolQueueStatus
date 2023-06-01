@@ -5,7 +5,7 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <PackageIcon>app icon.png</PackageIcon>
+    <PackageIcon>MainWindow.png</PackageIcon>
     <ApplicationIcon>Images\MainWindow.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -15,6 +15,7 @@
     <None Remove="Images\Author.png" />
     <None Remove="Images\GitHub.png" />
     <None Remove="Images\Gmail.png" />
+    <None Remove="Images\MainWindow.png" />
     <None Remove="Images\Me.jpg" />
     <None Remove="Images\Telegram.png" />
   </ItemGroup>
@@ -29,6 +30,10 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\MainWindow.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +56,11 @@
   <ItemGroup>
     <Resource Include="Images\Author.ico" />
     <Resource Include="Images\GitHub.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MainWindow.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Me.jpg">

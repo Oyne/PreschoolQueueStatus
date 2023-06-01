@@ -12,13 +12,19 @@
         WindowState="Maximized"
         Background="#202020">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*" />
             <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"
-              Grid.ColumnSpan="2">
+              Grid.ColumnSpan="2"
+              Margin="0,0,0,70"
+              Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
@@ -47,8 +53,10 @@
                 <MenuItem Header="Редагування"
                           Style="{StaticResource CustomMenuItemStyle}">
 
+
                     <MenuItem Header="Додати запис"
-                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="AddElementOpen">
                     </MenuItem>
 
                     <MenuItem Header="Видалити запис за ідентифікатором"
@@ -57,31 +65,19 @@
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="Допомога"
-                          Style="{StaticResource CustomMenuItemStyle}">
-
-                    <MenuItem Header="Інструкція"
-                              Style="{StaticResource CustomMenuItemPopUpStyle}">
-                    </MenuItem>
-                </MenuItem>
-
                 <MenuItem Header="О програмі"
                           Style="{StaticResource CustomMenuItemStyle}">
 
-                        <MenuItem Header="Автор"
-                                  Style="{StaticResource CustomMenuItemPopUpStyle}"
-                                  Click="AuthorOpen">
-                        </MenuItem>
+                    <MenuItem Header="Автор"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="AuthorOpen">
                     </MenuItem>
+                </MenuItem>
             </Menu>
             <DataGrid x:Name="StatusGrid"
+                      HorizontalAlignment="Stretch"
                       Grid.Row="1"
                       Background="#202020"
-                      RowBackground="#202020"
-                      Foreground="#ffffff"
-                      HorizontalGridLinesBrush="#ffffff"
-                      VerticalGridLinesBrush="#ffffff"
-                      HorizontalAlignment="Stretch"
                       BorderThickness="0"
                       IsReadOnly="True"
                       CanUserResizeColumns="False"
@@ -92,43 +88,183 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Ідентифікатор"
-                                        Binding="{Binding Identifier}" />
+                                        Binding="{Binding Identifier}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.7*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
 
                     <DataGridTextColumn Header="Дата подання"
-                                        Binding="{Binding DateReceived}" />
+                                        Binding="{Binding DateReceived}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.7*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
 
 
                     <DataGridTextColumn Header="Номер в черзі"
-                                        Binding="{Binding Number}" />
+                                        Binding="{Binding Number}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.7*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
 
                     <DataGridTextColumn Header="Стать"
-                                        Binding="{Binding Gender}" />
+                                        Binding="{Binding Gender}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.35*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
 
                     <DataGridTextColumn Header="Вікова група"
-                                        Binding="{Binding AgeGroup}" />
+                                        Binding="{Binding AgeGroup}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.7*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
                     <DataGridTextColumn Header="Наявність пільг"
-                                        Binding="{Binding BenefitType}" />
+                                        Binding="{Binding BenefitType}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.5*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
                     <DataGridTextColumn Header="Назва закладу"
-                                        Binding="{Binding InstitutionName}" />
+                                        Binding="{Binding InstitutionName}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
                     <DataGridTextColumn Header="Ідентифікатор закладу"
-                                        Binding="{Binding InstitutionIdentifier}" />
+                                        Binding="{Binding InstitutionIdentifier}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.7*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
                     <DataGridTextColumn Header="Дата виконання"
-                                        Binding="{Binding DateProvided}" />
+                                        Binding="{Binding DateProvided}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.5*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
 
                     <DataGridTextColumn Header="Статус заявки"
-                                        Binding="{Binding Status}" />
+                                        Binding="{Binding Status}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Width="0.5*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping"
+                                        Value="WrapWithOverflow" />
+                                <Setter Property="Background"
+                                        Value="#202020" />
+                                <Setter Property="Foreground"
+                                        Value="#ffffff" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
                 </DataGrid.Columns>
 
             </DataGrid>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.3*"></ColumnDefinition>
                 <ColumnDefinition Width="0.4*"></ColumnDefinition>
@@ -146,16 +282,16 @@
                      GotFocus="SearchGotFocusEvent"
                      PreviewTextInput="NumberValidationTextBox">
             </TextBox>
-           
-                <Button x:Name="SearchButton"
-                        Grid.Column="2"
-                        Style="{StaticResource RoundButtonStyle}"
-                        Content="Шукати"
-                        Width="85"
-                        HorizontalAlignment="Left"
-                        Margin="0, 10, 0, 10"
-                        Click="Search">
-                </Button>
+
+            <Button x:Name="SearchButton"
+                    Grid.Column="2"
+                    Style="{StaticResource RoundButtonStyle}"
+                    Content="Шукати"
+                    Width="85"
+                    HorizontalAlignment="Left"
+                    Margin="0, 10, 0, 10"
+                    Click="Search">
+            </Button>
 
             <Button x:Name="ResetButton"
                     Grid.Column="0"
