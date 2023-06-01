@@ -1,12 +1,140 @@
-﻿<Window x:Class="Application.MainWindow"
+﻿<Window x:Class="Queue.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Application"
+        xmlns:local="clr-namespace:Queue"
+        xmlns:data="clr-namespace:System.Data;assembly=System.Data.Common"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Queue"
+        MinHeight="720"
+        MinWidth="1280"
+        WindowState="Maximized"
+        Background="#202020">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.9*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0"
+              Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Menu Grid.Row="0"
+                  Background="#202020"
+                  Foreground="#ffffff">
+
+                <MenuItem Header="File"
+                          Style="{StaticResource CustomMenuItemStyle}">
+                    <MenuItem Header="Open"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="FileOpen">
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Help"
+                          Style="{StaticResource CustomMenuItemStyle}">
+
+                    <MenuItem Header="Instruction"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="About"
+                          Style="{StaticResource CustomMenuItemStyle}">
+
+                    <MenuItem Header="Author"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="AuthorOpen">
+                        </MenuItem>
+                </MenuItem>
+            </Menu>
+            <DataGrid x:Name="StatusGrid"
+                      Grid.Row="1"
+                      Background="#202020"
+                      RowBackground="#202020"
+                      Foreground="#ffffff"
+                      HorizontalGridLinesBrush="#ffffff"
+                      VerticalGridLinesBrush="#ffffff"
+                      HorizontalAlignment="Stretch"
+                      BorderThickness="0"
+                      IsReadOnly="True"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False"
+                      HeadersVisibility="Column"
+                      AutoGenerateColumns="False"
+                      FontSize="18">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ідентифікатор"
+                                        Binding="{Binding Identifier}" />
+
+                    <DataGridTextColumn Header="Дата подання"
+                                        Binding="{Binding DateReceived}" />
+
+
+
+                    <DataGridTextColumn Header="Номер в черзі"
+                                        Binding="{Binding Number}" />
+
+
+                    <DataGridTextColumn Header="Стать"
+                                        Binding="{Binding Gender}" />
+
+
+                    <DataGridTextColumn Header="Вікова група"
+                                        Binding="{Binding AgeGroup}" />
+
+                    <DataGridTextColumn Header="Наявність пільг"
+                                        Binding="{Binding BenefitType}" />
+
+                    <DataGridTextColumn Header="Назва закладу"
+                                        Binding="{Binding InstitutionName}" />
+
+                    <DataGridTextColumn Header="Ідентифікатор закладу"
+                                        Binding="{Binding InstitutionIdentifier}" />
+
+                    <DataGridTextColumn Header="Дата виконання"
+                                        Binding="{Binding DateProvided}" />
+
+                    <DataGridTextColumn Header="Статус заявки"
+                                        Binding="{Binding Status}" />
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="SearchButton"
+                    Style="{StaticResource RoundButtonStyle}"
+                    Content="Search"
+                    Grid.Column="1"
+                    Width="75"
+                    HorizontalAlignment="Left"
+                    Margin="15"
+                    Click="Search">
+            </Button>
+
+            <TextBox x:Name="SearchTextBox"
+                     Style="{StaticResource RoundedTextBoxStyle}"
+                     Text="Введіть ідентифікатор"
+                     BorderBrush="#ffffff"
+                     Grid.Column="0"
+                     HorizontalAlignment="Stretch"
+                     Margin="160, 0, 0, 0"
+                     VerticalAlignment="Center"
+                     GotFocus="SearchGotFocusEvent"
+                     PreviewTextInput="NumberValidationTextBox">
+            </TextBox>
+
+        </Grid>
     </Grid>
 </Window>
