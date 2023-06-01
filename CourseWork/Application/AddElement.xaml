@@ -101,12 +101,13 @@
                  Grid.Row="3"
                  Grid.Column="1"
                  Style="{StaticResource RoundedTextBoxStyle}"
-                 Text="Введіть ідентифікатор закладу(наприклад 39152477)"
+                 Text="Введіть ід закладу(наприклад 39152477)"
                  BorderBrush="#ffffff"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Center"
                  Margin="15"
-                 GotFocus="TextBoxGotFocusEvent">
+                 GotFocus="TextBoxGotFocusEvent"
+                 PreviewTextInput="NumberValidationTextBox">
         </TextBox>
 
         <TextBox x:Name="DateProvidedTextBox"
@@ -118,8 +119,7 @@
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Center"
                  Margin="15"
-                 GotFocus="TextBoxGotFocusEvent"
-                 PreviewTextInput="NumberValidationTextBox">
+                 GotFocus="TextBoxGotFocusEvent">
         </TextBox>
 
         <TextBox x:Name="StatusTextBox"

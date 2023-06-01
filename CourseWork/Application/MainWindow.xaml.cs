@@ -31,7 +31,8 @@ namespace Queue
             RemoveElement remEl = new(dataSet);
             remEl.Show();
 
-            StatusGrid.Items.Refresh();
+            StatusGrid.ItemsSource = null ;
+            StatusGrid.ItemsSource = dataSet.GetStatuses;
         }
 
         private void AddElementOpen(object sender, RoutedEventArgs e)
@@ -39,7 +40,8 @@ namespace Queue
             AddElement addEl = new(dataSet);
             addEl.Show();
 
-            StatusGrid.Items.Refresh();
+            StatusGrid.ItemsSource = null;
+            StatusGrid.ItemsSource = dataSet.GetStatuses;
         }
 
         public void FileOpen(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace Queue
                 dataSet.ImportDataSet(filename);
 
 
+                StatusGrid.ItemsSource = null;
                 StatusGrid.ItemsSource = dataSet.GetStatuses;
             }
         }
