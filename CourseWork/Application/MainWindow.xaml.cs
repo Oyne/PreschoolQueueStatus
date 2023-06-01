@@ -26,6 +26,14 @@ namespace Queue
             author.Show();
         }
 
+        private void RemoveElementOpen(object sender, RoutedEventArgs e)
+        {
+            RemoveElement remEl = new(dataSet);
+            remEl.Show();
+
+            StatusGrid.ItemsSource = dataSet.GetStatuses;
+        }
+
         public void FileOpen(object sender, EventArgs e)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
@@ -77,7 +85,7 @@ namespace Queue
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        public void SearchGotFocusEvent(object sender, RoutedEventArgs e)
+        private void SearchGotFocusEvent(object sender, RoutedEventArgs e)
         {
             SearchTextBox.Text = "";
             SearchTextBox.GotFocus -= SearchGotFocusEvent;

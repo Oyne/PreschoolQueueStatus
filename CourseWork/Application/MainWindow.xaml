@@ -52,7 +52,8 @@
                     </MenuItem>
 
                     <MenuItem Header="Видалити запис за ідентифікатором"
-                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                              Style="{StaticResource CustomMenuItemPopUpStyle}"
+                              Click="RemoveElementOpen">
                     </MenuItem>
                 </MenuItem>
 
