@@ -13,6 +13,7 @@ namespace Queue
     public partial class MainWindow : Window
     {
         DataSet dataSet = new DataSet();
+        string filename;
 
         public MainWindow()
         {
@@ -39,7 +40,28 @@ namespace Queue
             if (result == true)
             {
                 // Open document
-                string filename = dialog.FileName;
+                filename = dialog.FileName;
+                dataSet.ImportDataSet(filename);
+
+                StatusGrid.ItemsSource = dataSet.GetStatuses;
+            }
+        }
+
+        public void FileSaveAsOpen(object sender, EventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.FileName = "Workbook"; // Default file name
+            dialog.DefaultExt = ".txt"; // Default file extension
+            dialog.Filter = "Excel Workbook (.xlsx)|*.xlsx"; // Filter files by extension
+
+            // Show open file dialog box
+            bool? result = dialog.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                filename = dialog.FileName;
                 dataSet.ImportDataSet(filename);
 
                 StatusGrid.ItemsSource = dataSet.GetStatuses;
@@ -54,15 +76,26 @@ namespace Queue
         public void SearchGotFocusEvent(object sender, RoutedEventArgs e)
         {
             SearchTextBox.Text = "";
-
             SearchTextBox.GotFocus -= SearchGotFocusEvent;
         }
 
         private void Search(object sender, EventArgs e)
         {
-            var filtered = dataSet.GetStatuses.Where(status => status.Identifier.ToString().StartsWith(SearchTextBox.Text));
+            if (SearchTextBox.Text == "") Reset(sender, e);
+            else
+            {
+                var filtered = dataSet.GetStatuses.Where(status => status.Identifier.ToString().StartsWith(SearchTextBox.Text));
 
-            StatusGrid.ItemsSource = filtered;
+                StatusGrid.ItemsSource = filtered;
+            }
+        }
+
+        private void Reset(object sender, EventArgs e)
+        {
+            SearchTextBox.Text = "Введіть ідентифікатор";
+            SearchTextBox.GotFocus += SearchGotFocusEvent;
+
+            StatusGrid.ItemsSource = dataSet.GetStatuses;
         }
     }
 }

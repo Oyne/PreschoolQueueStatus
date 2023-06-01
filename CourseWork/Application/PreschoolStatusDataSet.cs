@@ -62,5 +62,10 @@ namespace PreschoolStatusDataSet
                 }
             }
         }
+
+        public void ExportDataSet(string fileName)
+        {
+
+        }
     }
 }

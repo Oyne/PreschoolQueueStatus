@@ -28,30 +28,48 @@
                   Background="#202020"
                   Foreground="#ffffff">
 
-                <MenuItem Header="File"
+                <MenuItem Header="Файл"
                           Style="{StaticResource CustomMenuItemStyle}">
-                    <MenuItem Header="Open"
+                    <MenuItem Header="Відкрити"
                               Style="{StaticResource CustomMenuItemPopUpStyle}"
                               Click="FileOpen">
                     </MenuItem>
-                </MenuItem>
-
-                <MenuItem Header="Help"
-                          Style="{StaticResource CustomMenuItemStyle}">
-
-                    <MenuItem Header="Instruction"
+                    <MenuItem Header="Зберегти"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                    </MenuItem>
+                    <MenuItem Header="Зберегти як"
                               Style="{StaticResource CustomMenuItemPopUpStyle}">
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="About"
+                <MenuItem Header="Редагування"
                           Style="{StaticResource CustomMenuItemStyle}">
 
-                    <MenuItem Header="Author"
-                              Style="{StaticResource CustomMenuItemPopUpStyle}"
-                              Click="AuthorOpen">
-                        </MenuItem>
+                    <MenuItem Header="Додати запис"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                    </MenuItem>
+
+                    <MenuItem Header="Видалити запис за ідентифікатором"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                    </MenuItem>
                 </MenuItem>
+
+                <MenuItem Header="Допомога"
+                          Style="{StaticResource CustomMenuItemStyle}">
+
+                    <MenuItem Header="Інструкція"
+                              Style="{StaticResource CustomMenuItemPopUpStyle}">
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="О програмі"
+                          Style="{StaticResource CustomMenuItemStyle}">
+
+                        <MenuItem Header="Автор"
+                                  Style="{StaticResource CustomMenuItemPopUpStyle}"
+                                  Click="AuthorOpen">
+                        </MenuItem>
+                    </MenuItem>
             </Menu>
             <DataGrid x:Name="StatusGrid"
                       Grid.Row="1"
@@ -109,32 +127,44 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.8*"></ColumnDefinition>
                 <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.20*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
-            <Button x:Name="SearchButton"
-                    Style="{StaticResource RoundButtonStyle}"
-                    Content="Search"
-                    Grid.Column="1"
-                    Width="75"
-                    HorizontalAlignment="Left"
-                    Margin="15"
-                    Click="Search">
-            </Button>
 
             <TextBox x:Name="SearchTextBox"
                      Style="{StaticResource RoundedTextBoxStyle}"
                      Text="Введіть ідентифікатор"
                      BorderBrush="#ffffff"
-                     Grid.Column="0"
+                     Grid.Column="1"
                      HorizontalAlignment="Stretch"
-                     Margin="160, 0, 0, 0"
                      VerticalAlignment="Center"
+                     Margin="5"
                      GotFocus="SearchGotFocusEvent"
                      PreviewTextInput="NumberValidationTextBox">
             </TextBox>
+            <UniformGrid Grid.Column="2"
+                         Columns="2">
+                <Button x:Name="SearchButton"
+                        Style="{StaticResource RoundButtonStyle}"
+                        Content="Шукати"
+                        Width="80"
+                        HorizontalAlignment="Center"
+                        Margin="0, 10, 2.5, 10"
+                        Click="Search">
+                </Button>
 
+                <Button x:Name="ResetButton"
+                        Style="{StaticResource RoundButtonStyle}"
+                        Content="Скинути"
+                        Width="80"
+                        HorizontalAlignment="Center"
+                        Margin="2.5, 10, 0, 10"
+                        Click="Reset">
+                </Button>
+            </UniformGrid>
+           
         </Grid>
     </Grid>
 </Window>
