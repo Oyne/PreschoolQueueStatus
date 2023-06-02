@@ -159,7 +159,7 @@ namespace Queue
                     status.DateReceived = DateReceivedTextBox.Text;
                     status.Number = int.Parse(IdentifierNumberTextBox.Text);
                     status.Gender = int.Parse(GenderTextBox.Text);
-                    status.AgeGroup = AgeGroupTextBox.Text;
+                    status.AgeGroup = AgeGroupTextBox.Text + " років";
                     status.BenefitType = BenefitTypeTextBox.Text;
                     status.InstitutionName = InstitutionNameTextBox.Text;
                     status.InstitutionIdentifier = int.Parse(InstitutionIdentifierTextBox.Text);
