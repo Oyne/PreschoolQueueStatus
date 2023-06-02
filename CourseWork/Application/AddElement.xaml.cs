@@ -66,8 +66,8 @@ namespace Queue
 
             else if (DateReceivedTextBox.Text == "")
             {
-                MessageBox.Show("Введіть дату подання(формат YY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
-                DateReceivedTextBox.Text = "Введіть дату подання(формат YY-MM-DD)";
+                MessageBox.Show("Введіть дату подання(формат YYYY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
+                DateReceivedTextBox.Text = "Введіть дату подання(формат YYYY-MM-DD)";
                 DateReceivedTextBox.GotFocus += TextBoxGotFocusEvent;
             }
 
@@ -109,8 +109,8 @@ namespace Queue
 
             else if (DateProvidedTextBox.Text == "")
             {
-                MessageBox.Show("Введіть дату виконання(формат YY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
-                DateProvidedTextBox.Text = "Введіть дату виконання(формат YY-MM-DD)";
+                MessageBox.Show("Введіть дату виконання(формат YYYY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
+                DateProvidedTextBox.Text = "Введіть дату виконання(формат YYYY-MM-DD)";
                 DateProvidedTextBox.GotFocus += TextBoxGotFocusEvent;
             }
 
@@ -132,7 +132,7 @@ namespace Queue
                     MessageBox.Show("Неправильний ідентифікатор закладу. Введіть ідентифікатор закладу(наприклад 39152477)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 else if (!dateRegex.IsMatch(DateReceivedTextBox.Text))
-                    MessageBox.Show("Неправильна дата подання. Введіть дату подання(формат YY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Неправильна дата подання. Введіть дату подання(формат YYYY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 else if (!genderRegex.IsMatch(GenderTextBox.Text))
                     MessageBox.Show("Неправильна стать. Введіть стать(1 або 2)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -144,7 +144,7 @@ namespace Queue
                     MessageBox.Show("Неправильна наявність пільг. Введіть наявність пільг(ні або так)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 else if (!dateRegex.IsMatch(DateProvidedTextBox.Text))
-                    MessageBox.Show("Неправильна дата виконання. Введіть дату виконання(формат YY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Неправильна дата виконання. Введіть дату виконання(формат YYYY-MM-DD)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 else if (!statustRegex.IsMatch(StatusTextBox.Text))
                     MessageBox.Show("Неправильний статус заяви. Введіть статус заяви(Виконана або Чинна)", "Помилка додання", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Queue"
         mc:Ignorable="d"
-        Title="Remove element" Height="150" Width="350"
+        Title="Видалити запис" Height="150" Width="350"
         ResizeMode="NoResize"
         Background="#202020">
     <Grid>

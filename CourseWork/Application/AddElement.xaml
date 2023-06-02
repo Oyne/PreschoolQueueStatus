@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Queue"
         mc:Ignorable="d"
-        Title="Add element" Height="750" Width="950"
+        Title="Додати запис" Height="750" Width="950"
         ResizeMode="NoResize"
         Background="#202020">
     <Grid>
@@ -40,7 +40,7 @@
                  Grid.Row="1"
                  Grid.Column="0"
                  Style="{StaticResource RoundedTextBoxStyle}"
-                 Text="Введіть дату подання(формат YY-MM-DD)"
+                 Text="Введіть дату подання(формат YYY-MM-DD)"
                  BorderBrush="#ffffff"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Center"
@@ -114,7 +114,7 @@
                  Grid.Row="4"
                  Grid.Column="0"
                  Style="{StaticResource RoundedTextBoxStyle}"
-                 Text="Введіть дату виконання(формат YY-MM-DD)"
+                 Text="Введіть дату виконання(формат YYYY-MM-DD)"
                  BorderBrush="#ffffff"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Center"
