@@ -1,19 +1,9 @@
-﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
-using PreschoolStatusDataSet;
+﻿using PreschoolStatusDataSet;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Queue
 {
@@ -29,23 +19,36 @@ namespace Queue
             this.dataSet = statuses;
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Validates input for having only digits
+        /// </summary>
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        /// <summary>
+        /// Removes text from TextBox when first focused
+        /// </summary>
         private void RemoveGotFocusEvent(object sender, RoutedEventArgs e)
         {
             IdentifierTextBox.Text = "";
             IdentifierTextBox.GotFocus -= RemoveGotFocusEvent;
         }
 
+        /// <summary>
+        /// Removes element from the List
+        /// </summary>
         private void Remove(object sender, EventArgs e)
         {
+
+            //Checking that TextBoxes not have its default value
             if (IdentifierTextBox.Text != "Введіть ідентифікатор")
             {
-                if (dataSet.GetStatuses.Any(cus => cus.Identifier == int.Parse(IdentifierTextBox.Text.Equals(null) ? "-1" : IdentifierTextBox.Text)))
+                //Checking that element with needed identifier exists in the list
+                if (dataSet.GetStatuses.Any(s => s.Identifier == int.Parse(IdentifierTextBox.Text)))
                 {
                     dataSet.GetStatuses.RemoveAll((s) => s.Identifier == int.Parse(IdentifierTextBox.Text));
                     MessageBox.Show("Запис за ідентифікатором " + IdentifierTextBox.Text + " було видалено", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
