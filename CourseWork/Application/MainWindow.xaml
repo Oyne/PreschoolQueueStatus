@@ -11,8 +11,7 @@
         Background="#202020">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="27*" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.9*" />
